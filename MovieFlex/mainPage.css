@@ -1,0 +1,30 @@
+.navigateBar{
+  overflow: hidden;
+  background-color: #e9e9e9;
+  width: 100%;
+}
+.navigateBar a{
+  display: block;
+  /* text-align: center; */
+  float: left;
+  font-size: 20px;
+  /* text-align: center; */
+  /* background-color: #e9e9e9; */
+  width: 25%;
+}
+.navigateBar a:hover{
+  background-color: #94918b;
+  color: black;
+}
+.navigateBar a:active{
+  background-color: #63b2ff;
+  color: white;
+}
+
+.navigateBar input{
+  float: right;
+  font-size: 20px;
+  border: 1px solid black;
+  /* background-color: #e9e9e9; */
+  width: 24%;
+}
