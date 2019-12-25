@@ -38,7 +38,7 @@ CREATE TABLE `FavoriteMovies` (
 CREATE TABLE `Comments` (
   `userID` int NOT NULL,
   `movieID` int NOT NULL,
-  `content` varchar(255) NOT NULL
+  `content` longtext NOT NULL
 );
 
 ALTER TABLE `LoginDatas` ADD FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
