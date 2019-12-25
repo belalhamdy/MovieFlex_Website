@@ -19,6 +19,7 @@ CREATE TABLE `Users` (
 
 CREATE TABLE `Movies` (
   `movieID` int PRIMARY KEY AUTO_INCREMENT,
+  `ownerID` int NOT NULL,
   `title` varchar(255) NOT NULL,
   `posterPath` varchar(255) NOT NULL,
   `genre` int NOT NULL,
@@ -41,6 +42,8 @@ CREATE TABLE `Comments` (
 );
 
 ALTER TABLE `LoginDatas` ADD FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE `Movies` ADD FOREIGN KEY (`ownerID`) REFERENCES `Users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE `FavoriteMovies` ADD FOREIGN KEY (`userID`) REFERENCES `Users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 

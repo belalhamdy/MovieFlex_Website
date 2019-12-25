@@ -108,10 +108,10 @@ namespace Movies_Database_Getter
 
         private static void PrintMoviesData()
         {
+            Random rnd = new Random();
             foreach (var curr in Movies)
             {
-                Random rnd = new Random();
-                Console.WriteLine($"INSERT INTO Movies(title,posterPath,genre,votesCount,isAdult,overview,releaseDate) VALUES ('{curr.Title}','{curr.poster_path}',{rnd.Next(10)},{curr.Vote_Count},{(curr.Adult? 1 : 0)},'{curr.Overview}','{curr.Release_Date}');");
+                Console.WriteLine($"INSERT INTO Movies(ownerID,title,posterPath,genre,votesCount,isAdult,overview,releaseDate) VALUES ({rnd.Next(UserCount)},'{curr.Title}','{curr.poster_path}',{rnd.Next(10)},{curr.Vote_Count},{(curr.Adult? 1 : 0)},'{curr.Overview}','{curr.Release_Date}');");
             }
         }
         private static void PrintFavoriteData()
