@@ -27,14 +27,14 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
-<body bgcolor="#000000">
+<body>
 	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="Home.html">
+				<form class="login100-form validate-form" action="Home.php">
 					<span class="login100-form-title p-b-26">
-						Welcome <br> to <br> Movie Flex
+						Welcome <br> To <br> Movie Flex
 					</span>
 					<span class="login100-form-title p-b-48">
 						<i class="zmdi zmdi-font"></i>
@@ -67,7 +67,7 @@
 							Don’t have an account?
 						</span>
 
-						<a class="txt2" href="SignUp.html">
+						<a class="txt2" href="SignUp.php">
 							Sign Up
 						</a>
 					</div>
