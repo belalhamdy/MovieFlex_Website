@@ -37,24 +37,39 @@
     <!-- Page Content -->
     <div class="container">
 
-        <div class="row">
-
-            <div class="col-lg-12">
-            
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Name</label>
-                    <input class="form-control" id="textarea" type="text" rows="3"></input>
-                </div>
-
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Description</label>
-                    <textarea class="form-control" id="textarea" rows="3"></textarea>
-                </div>
-            
-            </div>
-       
+      <div class="col-lg-12">
+      
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" type="text"></input>
         </div>
-      <!-- /.row -->
+
+        <div class="form-group">
+            <label>Poster Path</label>
+            <input class="form-control" type="text"></input>
+        </div>
+
+        <div class="form-group">
+            <label>Relase Date</label>
+            <input class="form-control" type="date"></input>
+        </div>
+
+        <div class="form-group">
+            <label>Classification </label>
+            <input class="form-control" type="text"></input>
+        </div>
+
+        <div class="form-group">
+            <label>Type </label>
+            <input class="form-control" type="text"></input>
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" id="textarea" rows="5"></textarea>
+        </div>
+
+      </div>
 
     </div>
     <!-- /.container -->

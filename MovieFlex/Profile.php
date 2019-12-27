@@ -36,10 +36,32 @@
     </script>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container ">
 
-      <div class="row">
+      <div class="row pad-top-5">
+        <div class="card bor-custom" style="width: 18rem;">
+          <img width="300" height="420" src="https://cdn-static.egybest.net/serve/movies/art-2732945228-x300.jpg" class="card-img-top" alt="Your Picture">
+          <div class="card-body">
+            <h5 class="card-title">Your name</h5>
+          </div>
+        </div>
+        <!--<div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                  <div class="card h-100">
+                    <img width="300" height="500" src="https://www.elfagr.com/upload/photo/news/345/9/600x338o/2.jpg" alt="your Picture">
+                  </div>
+                </div>              
+              </div>
+        </div>-->
 
+        <div class="col-lg-8">
+          <br>
+          <h2 class="">Email</h2>
+          <h2 class="">Age</h2>
+          <h2 class="">Liked Movies</h2>
+          <h2 class="">Movies</h2>
+        </div>
         <!--<div class="col-lg-3">
 
           <h1 class="my-4">Movie Flex</h1>
@@ -51,51 +73,6 @@
         
         </div>
         <!-- /.col-lg-3 -->
-
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                      <div class="card h-100">
-                        <img width="300" height="500" src="https://www.elfagr.com/upload/photo/news/345/9/600x338o/2.jpg" alt="your Picture">
-                      </div>
-                    </div>              
-                  </div>
-            </div>
-
-            <div class="col-lg-5">
-                <br>
-                <h1 class="">Your Name</h1>
-                <br>
-                <h2 class="">Email</h2>
-                <h2 class="">Age</h2>
-                <h2 class="">Liked Movies</h2>
-                <h2 class="">Movies</h2>
-            </div>
-            
-          <!--</div>
-
-          <!--<div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                  <div class="card h-100">
-                    <a href=""><img class="card-img-top" src=""> Image</a>
-                    <div class="card-body">
-                      <h4 class="card-title">
-                        <a href=>Name</a>
-                      </h4>
-                      <h5>Description</h5>
-                    </div>
-                    <div class="card-footer">
-                      <small class="text-muted">7.6</small> <!--&#9733; &#9733; &#9733; &#9733; &#9734;
-                    </div>
-                  </div>
-                </div>              
-          </div>
-          <!-- /.row -->
-
-        </div>
-        <!-- /.col-lg-9 -->
-
       </div>
       <!-- /.row -->
 
