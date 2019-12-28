@@ -15,7 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
-
+	<div id ="footer-placeholder"></div>
   </head>
 
   <body>
@@ -27,12 +27,6 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        $.get("NavBar.php", function(data){
-            $("#nav-placeholder").replaceWith(data);
-        });
-    </script>
 
     <!-- Page Content -->
     <div class="container">
@@ -76,13 +70,7 @@
     </div>
     <!-- /.container -->
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Movie Flex 2019</p>
-        </div>
-      <!-- /.container -->
-    </footer>
+	<script src="js/shared.js">
     
 
   </body>

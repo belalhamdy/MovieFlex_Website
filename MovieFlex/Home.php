@@ -7,7 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    
+	<!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	
     <title>Movie Flex Homepage</title>
 
     <!-- Bootstrap core CSS -->
@@ -15,38 +19,20 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
-
+	
+	<div id ="footer-placeholder"></div>
   </head>
 
   <body>
     <!-- Navigation -->
-    <div id="nav-placeholder">
-
-    </div>
-    
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-      $.get("NavBar.php", function(data){
-          $("#nav-placeholder").replaceWith(data);
-      });
-    </script>
+    <div id="nav-placeholder"></div>
 
     <!-- Page Content -->
     <div class="container">
 
       <div class="row">
 
-        <div class="col-lg-3">
-
-          <h1 class="my-4">Movie Flex</h1>
-            <div class="list-group" id = "mylist">
-                <a href="Home.php?category=home" class="list-group-item <?php if($_GET['category'] == 'home') echo active?>" >Home</a>
-                <a href="MostView.php?category=mostview" class="list-group-item <?php if($_GET['category'] == 'mostview') echo active?>">Most Viewed</a>
-                <a href="Movies.php?category=movies" class="list-group-item <?php if($_GET['category'] == 'movies') echo active?>">Movies</a>
-            </div>
+        <div id = "leftnav-placeholder" class="col-lg-3">
         
         </div>
         <!-- /.col-lg-3 -->
@@ -60,7 +46,7 @@
               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             </ol>
-            <div class="carousel-inner" role="listbox">
+            <div class="carousel-inner" role="listbox" id = "lstcarousel">
               <div class="carousel-item active">
                 <img class="d-block img-block" width=900 height=300 src="https://www.elfagr.com/upload/photo/news/345/9/600x338o/2.jpg"  alt="First slide">
               </div>
@@ -85,21 +71,7 @@
           </div>
 
           <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="Movie.php?id=12"><img class="card-img-top" src=""> Image</img></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="Movie.php?id=12">Name</a>
-                  </h4>
-                  <h5>Brief Description</h5>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">7.6</small> <!--&#9733; &#9733; &#9733; &#9733; &#9734;-->
-                </div>
-              </div>
-            </div>  
-
+            <div id = "movies-placeholder"></div>
           </div>
           <!-- /.row -->
 
@@ -111,16 +83,19 @@
 
     </div>
     <!-- /.container -->
-
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Movie Flex 2019</p>
-      </div>
-      <!-- /.container -->
-    </footer>
     
-
+    <script src="js/shared.js">
+    </script>
+	<script>
+	  $.get("LeftNavBar.php", {'category' : 'home'}, function(data){
+		  $("#leftnav-placeholder").replaceWith(data)
+	  });
+	</script>
+	<script>
+		$.get("MovieBoxes.php", function(data){
+		  $("#movies-placeholder").replaceWith(data)
+	  });
+	</script>
   </body>
 
 </html>

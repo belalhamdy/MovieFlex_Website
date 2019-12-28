@@ -16,6 +16,8 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<div id ="footer-placeholder"></div>
   </head>
 
   <body>
@@ -27,12 +29,6 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-      $.get("NavBar.php", function(data){
-          $("#nav-placeholder").replaceWith(data);
-      });
-    </script>
 
     <!-- Page Content -->
     <div class="container">
@@ -107,14 +103,6 @@
 
     </div>
     <!-- /.container -->
-
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Movie Flex 2019</p>
-      </div>
-      <!-- /.container -->
-    </footer>
     
 
 <!-- you need to include the shieldui css and js assets in order for the charts to work -->

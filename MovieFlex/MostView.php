@@ -16,6 +16,7 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
+	<div id ="footer-placeholder"></div>
   </head>
 
   <body>
@@ -28,25 +29,12 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-      $.get("NavBar.php", function(data){
-          $("#nav-placeholder").replaceWith(data);
-      });
-    </script>
-
     <!-- Page Content -->
     <div class="container">
 
       <div class="row">
 
-        <div class="col-lg-3">
-
-            <h1 class="my-4">Movie Flex</h1>
-            <div class="list-group" id = "mylist">
-                <a href="Home.php?category=home" class="list-group-item <?php if($_GET['category'] == 'home') echo active?>" >Home</a>
-                <a href="MostView.php?category=mostview" class="list-group-item <?php if($_GET['category'] == 'mostview') echo active?>">Most Viewed</a>
-                <a href="Movies.php?category=movies" class="list-group-item <?php if($_GET['category'] == 'movies') echo active?>">Movies</a>
-            </div>
+        <div id = "leftnav-placeholder" class="col-lg-3">
         
         </div>
         <!-- /.col-lg-3 -->
@@ -78,16 +66,14 @@
 
     </div>
     <!-- /.container -->
-
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Movie Flex 2019</p>
-      </div>
-      <!-- /.container -->
-    </footer>
     
-
+    <script src="js/shared.js">
+    </script>
+	<script>
+	  $.get("LeftNavBar.php", {'category' : 'mostview'}, function(data){
+		  $("#leftnav-placeholder").replaceWith(data)
+	  });
+	</script>
   </body>
 
 </html>
