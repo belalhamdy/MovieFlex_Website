@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Movie Flex Homepage</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
-
-	<div id ="footer-placeholder"></div>
-  </head>
-
+<?php include_once("includes/header.php"); ?>
   <body>
     <!-- Navigation -->
     <div id="nav-placeholder">
@@ -57,12 +37,12 @@
     <script src="js/shared.js">
     </script>
 	<script>
-	  $.get("LeftNavBar.php", {'category' : 'none'}, function(data){
+	  $.get("includes/LeftNavBar.php", {'category' : 'none'}, function(data){
 		  $("#leftnav-placeholder").replaceWith(data)
 	  });
 	</script>
 		<script>
-		$.get("MovieBoxes.php", {'limit' : 50, 'orderby' : 'votesCount', 'q' : '<?php echo $_GET['q'] ?>'}, function(data){
+		$.get("includes/MovieBoxes.php", {'limit' : 50, 'orderby' : 'votesCount', 'q' : '<?php echo $_GET['q'] ?>'}, function(data){
 		  $("#movies-placeholder").replaceWith(data)
 	  });
 	</script>

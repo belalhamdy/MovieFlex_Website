@@ -1,7 +1,7 @@
 <?php
 $characterlimit = 250;
 
-$orderby = isset($_GET["orderby"])?$_GET["orderby"]:"RAND";
+$orderby = isset($_GET["orderby"])?$_GET["orderby"]:"RAND()";
 $limit = isset($_GET["limit"])?$_GET["limit"]:"6";
 
 $searchterm = isset($_GET["q"])?$_GET["q"]:"";
@@ -24,7 +24,6 @@ if ($conn->connect_error) {
 	WHERE title LIKE CONCAT('%',?,'%')
 	ORDER BY $orderby DESC
 	LIMIT ?");
-
 	$stmt->bind_param("ss", $searchterm, $limit);	
 
 #$sql = "SELECT movieid, title, posterPath, overview, votesCount FROM movies ORDER BY $orderby DESC LIMIT $limit";

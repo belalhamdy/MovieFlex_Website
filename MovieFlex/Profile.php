@@ -1,58 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Movie Flex Homepage</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
-
-	<div id ="footer-placeholder"></div>
-  </head>
-
+<?php include_once("includes/header.php"); ?>
+<?php if(!isset($_SESSION["loggedin"])){
+	header("Location: home.php");
+	exit();
+}?>
   <body>
 
     <!-- Navigation -->
-    <div id="nav-placeholder">
-
-    </div>
+    <div id="nav-placeholder"></div>
     
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	
 
-    <script>
-      $.get("NavBar.php", function(data){
-          $("#nav-placeholder").replaceWith(data);
-      });
-    </script>
 
+    <?php
+ 
+      $db=new mysqli("localhost","root","","moviesdb");
+      $id=$_SESSION["loggedin"];
+ 
+      $query=("SELECT * FROM users WHERE userID='$id'");
+      $query=$db->query($query);
+ 
+      $query=$query->fetch_assoc();
+      $photo=$query["photoPath"];
+      $name=$query["name"];
+      $email=$query["email"];
+      $age  =$query["age"];
+ 
+      $query=("SELECT * FROM movies WHERE ownerID='$id'");
+      $query=$db->query($query);
+ 
+ 
+      // $movies=$query["movieID"];
+ 
+      $moviesArray=[];
+      if($query->num_rows>0){
+        $i=0;
+        while($movieID=$query->fetch_assoc()){
+          $movieID=$movieID["title"];
+          $moviesArray[$i]=$movieID;
+          ++$i;
+        }
+      }
+      $likedMoviesQuery=("SELECT * FROM movies join favoritemovies on movies.movieID= favoritemovies.movieID WHERE userID='$id'");
+      $likedMoviesQuery=$db->query($likedMoviesQuery);
+ 
+      $likedMovies=[];
+      if($likedMoviesQuery->num_rows>0){
+        $i=0;
+        while($movieID=$likedMoviesQuery->fetch_assoc()){
+          $movieID=$movieID["title"];
+          $likedMovies[$i]=$movieID;
+          ++$i;
+        }
+      }
+ 
+     ?> 
     <!-- Page Content -->
     <div class="container">
-
+ 
       <div class="row pad-top-5 pl-3">
         <div class="card bor-custom" style="width: 18rem;" id="card">
-          <img width="300" height="420" class="card-img-top" src="https://cdn-static.egybest.net/serve/movies/art-2732945228-x300.jpg"  alt="Your Picture">
+          <img width="300" class="card-img-top" src=<?php echo $photo; ?>  alt="Your Picture">
           <div class="card-body">
-            <h5 class="card-title">Your name</h5>
+            <h5 class="card-title"><?php echo $name;?></h5>
           </div>
         </div>
-
+ 
         <div class="col-lg-8">
           <br>
-          <h2 class="">Email</h2>
-          <h2 class="">Age</h2>
-          <h2 class="">Liked Movies</h2>
-          <h2 class="">Movies</h2>
+          <h2 class="">Email: <?php echo $email;?></h2>
+          <h2 class="">Age: <?php echo $age;?></h2>
+          <h2 class="">Liked Movies: </h2>
+          <p> <?php foreach ($likedMovies as $key)  {
+            echo $key;
+            echo " , ";
+          }; ?></p>
+          <h2 class="">Movies: </h2>
+          <p> <?php foreach ($moviesArray as $key)  {
+            echo $key;
+            echo " , ";
+          }; ?></p>
         </div>
         <!-- /.col-lg-3 -->
       </div>
@@ -75,28 +104,22 @@
               <small class="text-muted">7.6</small> <!--&#9733; &#9733; &#9733; &#9733; &#9734;-->
             </div>
           </div>
-        </div> 
-
+        </div>
+ 
       </div>
       <!--/.row-->
     </div>
     <!-- /.container -->
-
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Movie Flex 2019</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
+ 
+    <script src="js/shared.js">
+ 
     <script>
       $documnet.ready({
         $("#card").slideDown();
       });
     </script>
-    
-
+ 
+ 
   </body>
-
+ 
 </html>

@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+session_start();
+session_unset();
+?><!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Movie Flex Signuppage</title>
@@ -32,13 +35,14 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form method="post" class="login100-form validate-form" action="SignUpValidate.php">
+				<form method="post" class="login100-form validate-form" action="includes/SignUpValidate.php">
 					<span class="login100-form-title p-b-26">
 						Welcome <br> To <br> Movie Flex
 					</span>
 					<span class="login100-form-title p-b-48">
 						<i class="zmdi zmdi-font"></i>
 					</span>
+					<div align="center"><font color="red"><?php if (isset($_GET["bad"]) && $_GET["bad"]==1) echo "Bad Input";?></font></div>
 					<div class="wrap-input100 validate-input" data-validate = "Enter Name">
 						<input class="input100" type="text" name="Name">
 						<span class="focus-input100" data-placeholder="User Name"></span>
@@ -51,24 +55,24 @@
 						<input class="input100" type="text" name="email">
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
+					<div class="wrap-input100 validate-input" data-validate="Password must be more than 6 characters">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" id="pass1" name="pass">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
-					<div class="wrap-input100 validate-input" data-validate="Enter Confirm password">
+					<div class="wrap-input100 validate-input" data-validate="Passwords don't match">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="confirmPass">
+						<input class="input100" type="password" id="pass2" name="confirmPass">
 						<span class="focus-input100" data-placeholder="Confirm Password"></span>
 					</div>
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button href="" class="login100-form-btn">
+							<button class="login100-form-btn">
 								Sign up
 							</button>
 						</div>
@@ -103,6 +107,6 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+	<script src="js/sign.js?v=1"></script>
 </body>
 </html>

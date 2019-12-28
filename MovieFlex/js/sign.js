@@ -20,17 +20,23 @@
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
-
+	var pass1 = $('#pass1');
+	var pass2 = $('#pass2');
     $('.validate-form').on('submit',function(){
         var check = true;
-
         for(var i=0; i<input.length; i++) {
+			if($(input[i]).attr('id') == 'pass1' || $(input[i]).attr('id') == 'pass2')
+				continue;
             if(validate(input[i]) == false){
                 showValidate(input[i]);
-                check=false;
+                check = false;
             }
         }
-
+		
+		if (!checkPasswords(pass1, pass2)){
+			check = false;
+		}
+		
         return check;
     });
 
@@ -41,6 +47,18 @@
         });
     });
 
+	function checkPasswords(pass1, pass2){
+		if (!pass1.length || !pass2.length) return true;
+		if($(pass1).val().length < 6){
+			showValidate(pass1);
+			return false;
+		}else if ($(pass1).val() != $(pass2).val()){
+			showValidate(pass2);
+			return false;
+		}
+		return true;
+	}
+	
     function validate (input) {
         if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
             if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
