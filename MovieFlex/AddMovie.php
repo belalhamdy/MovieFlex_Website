@@ -41,33 +41,35 @@
       
         <div class="form-group">
             <label>Name</label>
-            <input class="form-control" type="text"></input>
+            <input class="form-control" id="name" type="text"></input>
         </div>
 
         <div class="form-group">
-            <label>Poster Path</label>
-            <input class="form-control" type="text"></input>
+            <label>Poster</label>
+            <input class="form-control" id="poster" type="file"></input>
         </div>
 
         <div class="form-group">
             <label>Relase Date</label>
-            <input class="form-control" type="date"></input>
+            <input class="form-control" id="relaseDate" type="date"></input>
         </div>
 
         <div class="form-group">
             <label>Classification </label>
-            <input class="form-control" type="text"></input>
+            <input class="form-control" id="classification" type="text"></input>
         </div>
 
         <div class="form-group">
             <label>Type </label>
-            <input class="form-control" type="text"></input>
+            <input class="form-control" id="type" type="text"></input>
         </div>
 
         <div class="form-group">
             <label>Description</label>
-            <textarea class="form-control" id="textarea" rows="5"></textarea>
+            <textarea class="form-control" id="description" rows="5"></textarea>
         </div>
+        <!-- Apply validation for on Click Add Button-->
+        <button type="button" class="btn btn-outline-primary float-right mr-1">Add</button>
 
       </div>
 

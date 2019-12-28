@@ -43,35 +43,6 @@ html {
   background-color: #007bff;/* rgb(220, 244, 255);*/
 }
 
-.btn-outline-Blue {
-  color: #007bff;
-  background-color: transparent;
-  background-image: none;
-  border-color: #007bff;
-}
-
-.btn-outline-Blue:hover {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-.btn-outline-Blue:focus, .btn-outline-Blue.focus {
-  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5);
-}
-
-.btn-outline-Blue.disabled, .btn-outline-Blue:disabled {
-  color: #007bff;
-  background-color: transparent;
-}
-
-.btn-outline-Blue:active, .btn-outline-Blue.active,
-.show > .btn-outline-Blue.dropdown-toggle {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
 .form-control:hover {
   color: #495057;
   background-color: #fff;
@@ -93,7 +64,6 @@ html {
 }
 .pad-top-5 {
   padding-top: 5px;
-  
 }
 
 .pad-top-10 {
@@ -130,6 +100,38 @@ body{margin-top:20px;}
 
 .rating {
   margin-left: 30px;
+}
+
+.pad-right-5{
+  padding-right: 5px;
+}
+
+.fa-heart-o {
+  color: red;
+  cursor: pointer;
+}
+
+.fa-heart {
+  color: red;
+  cursor: pointer;
+}
+
+.pad-left-0{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.Border {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  background-color: #007bff;
+  height: 1px;
+  left: 50%;
+  bottom: 0px;
+  transform: translate(0%, -50%);
 }
 
 @media (min-width: 992px) {

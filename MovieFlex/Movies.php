@@ -66,7 +66,8 @@
                   <small class="text-muted">7.6</small> <!--&#9733; &#9733; &#9733; &#9733; &#9734;-->
                 </div>
               </div>
-            </div>              
+            </div>   
+                       
           </div>
           <!-- /.row -->
 
