@@ -42,7 +42,12 @@ session_unset();
 					<span class="login100-form-title p-b-48">
 						<i class="zmdi zmdi-font"></i>
 					</span>
-					<div align="center"><font color="red"><?php if (isset($_GET["bad"]) && $_GET["bad"]==1) echo "Username and password don't match";?></font></div>
+					<?php 
+					if (isset($_GET["bad"]) && $_GET["bad"]==1)
+						echo '<div align="center"><font color="red">Username and password don\'t match</font></div>';
+					else if (isset($_GET["account"]) && $_GET["account"]==1)
+						echo '<div align="center"><font color="green">Account created successfully!</font></div>';
+					?>
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
 						<input class="input100" type="text" name="username">
 						<span class="focus-input100" data-placeholder="username"></span>

@@ -6,6 +6,10 @@ $limit = isset($_GET["limit"])?$_GET["limit"]:"6";
 
 $searchterm = isset($_GET["q"])?$_GET["q"]:"";
 
+$JOINSTR = isset($_GET["userID"])?
+			" JOIN favoritemovies ON favoritemovies.movieid=movies.movieid AND userID=".$_GET["userID"]
+			:"";
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -19,11 +23,18 @@ if ($conn->connect_error) {
 }
 
 	$stmt = $conn->prepare("
-	SELECT movieid, title, posterPath, overview, votesCount
-	FROM movies
+	SELECT movies.movieid, title, posterPath, overview, votesCount
+	FROM movies ".$JOINSTR."
 	WHERE title LIKE CONCAT('%',?,'%')
 	ORDER BY $orderby DESC
 	LIMIT ?");
+	/*
+	SELECT movies.movieid, title, posterPath, overview, votesCount
+	FROM movies JOIN favoritemovies ON favoritemovies.movieid=movies.movieid AND userID=1
+	WHERE title LIKE CONCAT('%%')
+	ORDER BY votesCount DESC
+	LIMIT 30
+	*/
 	$stmt->bind_param("ss", $searchterm, $limit);	
 
 #$sql = "SELECT movieid, title, posterPath, overview, votesCount FROM movies ORDER BY $orderby DESC LIMIT $limit";

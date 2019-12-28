@@ -43,6 +43,7 @@
           ++$i;
         }
       }
+	  /*
       $likedMoviesQuery=("SELECT * FROM movies join favoritemovies on movies.movieID= favoritemovies.movieID WHERE userID='$id'");
       $likedMoviesQuery=$db->query($likedMoviesQuery);
  
@@ -55,7 +56,7 @@
           ++$i;
         }
       }
- 
+ */
      ?> 
     <!-- Page Content -->
     <div class="container">
@@ -72,11 +73,6 @@
           <br>
           <h2 class="">Email: <?php echo $email;?></h2>
           <h2 class="">Age: <?php echo $age;?></h2>
-          <h2 class="">Liked Movies: </h2>
-          <p> <?php foreach ($likedMovies as $key)  {
-            echo $key;
-            echo " , ";
-          }; ?></p>
           <h2 class="">Movies: </h2>
           <p> <?php foreach ($moviesArray as $key)  {
             echo $key;
@@ -90,29 +86,19 @@
       <h1 class="pt-1 pb-1 col-sm text-center bg-dark" style="color: white">Favorite Movies</h1>
       <div class="Border"></div>
       <div class="row pad-top-5">
-        <!--dp your loop here-->
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
-            <a href="Movie.php?id=12"><img class="card-img-top" src=""> Image</a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="Movie.php?id=12">Name</a>
-              </h4>
-              <h5>Description</h5>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">7.6</small> <!--&#9733; &#9733; &#9733; &#9733; &#9734;-->
-            </div>
-          </div>
-        </div>
+        <?php
+		$_GET['userID'] = $_SESSION['loggedin'];
+		$_GET['orderby'] = 'movieID';
+		$_GET['limit'] = 30;
+		include("includes/MovieBoxes.php");
+		?>
  
       </div>
       <!--/.row-->
     </div>
     <!-- /.container -->
  
-    <script src="js/shared.js">
- 
+    <script src="js/shared.js"></script>
     <script>
       $documnet.ready({
         $("#card").slideDown();

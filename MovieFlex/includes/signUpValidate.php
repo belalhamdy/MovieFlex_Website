@@ -19,7 +19,7 @@
 
     if($resName->num_rows <= 0 && $resEmail->num_rows <= 0 && $pw==$confirmPass){
       addUser($db,$name,$pw,$email,$age);
-      header("Location: ../Login.php");
+      header("Location: ../Login.php?account=1");
     }
     else {
       header("Location: ../SignUp.php?bad=1");
@@ -34,7 +34,7 @@
     $result=$db->query($query);
     $result=$result->fetch_assoc();
     $id=$result["userID"];
-    $pw=md5($pw);
+    $pw=hash("sha256",$pw);
     $dataQuery=("INSERT INTO LoginDatas(userID,username,password) VALUES ($id,'$name','$pw')");
     performQuery($db,$dataQuery);
 
