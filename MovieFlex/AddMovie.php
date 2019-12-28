@@ -20,9 +20,7 @@
 
   <body>
     <!-- Navigation -->
-    <div id="nav-placeholder">
-
-    </div>
+    <div id="nav-placeholder"></div>
     
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -70,7 +68,7 @@
     </div>
     <!-- /.container -->
 
-	<script src="js/shared.js">
+	<script src="js/shared.js"></script>
     
 
   </body>
