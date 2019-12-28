@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -32,85 +31,122 @@
 
     <!-- Page Content -->
     <div class="container">
+	
+<?php
 
-      <div class="row">
-        
-        <div class="col-lg-3">
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "moviesdb";
 
-          <div class="card mt-4">
-            <img width="300" height="420" class="card-img-top" src="https://cdn-static.egybest.net/serve/movies/art-2732945228-x300.jpg" alt="">
-            <div class="card-body">
-              <h3 class="card-title">Movie Name</h3>
-              <!--<div class="card-des" id="rate" onclick="showMsg('fd')"></div>-->
-              <div>
-                
-                <span id="heart"><i class="fa fa-heart-o" aria-hidden="true" ></i> </span>
-                
-                <!-- give privilege for the Admin to delete--> 
-                <button class="btn btn-outline-danger col-lg-12" onclick="alert('Delete')">Delete</button>
-                <!-- end privilege-->
-                
-              </div>
-            </div>
-          </div>
-          <!-- /.card  -->
-        </div>
-        <div class="col-lg-9 pad-top-10">
-          <p class="card-text">Your Description here!</p>
-        </div>
-        <!-- /.col-lg-9 -->
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-      </div>
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-      <!--Commment Panel-->
-      <div class="row ">
-        <div class="col-md-12">
-          <div class="comment-wrapper">
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                    Comments
-              </div>
+	$stmt = $conn->prepare("
+	SELECT movieID, ownerID, title, posterPath, genre, votesCount, isAdult, overview, releaseDate
+	FROM movies
+	WHERE movieID = ?");
 
-              <div class="panel-body">
-                <textarea class="form-control" placeholder="write a comment..." rows="3"></textarea>
-                <br>
-                <button type="button" class="btn btn-outline-primary float-right mr-1" onclick="alert('Post')">Post</button>
-                <div class="clearfix"></div>
-                  <hr>
-                  <ul class="media-list">
+	$stmt->bind_param("i", $_GET['id']);	
+	
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$conn->close();
+	
+	if ($result->num_rows > 0) {
+		$row = $result->fetch_assoc();
+		echo '
+			  <div class="row">
+				
+				<div class="col-lg-3">
 
-                      <!--Comment body-->
-                      <li class="media">
-                          <a href="Profile.php?id=12" class="float-left">
-                              <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
-                          </a>
-                          <div class="media-body">
-                              <strong class="text-success">Comment Owner Name</strong>
-                              <p>
-                                  Comment details </a>.
-                              </p>
-                          </div>
-                      </li>
+				  <div class="card mt-4">
+					<img width="300" height="420" class="card-img-top" src="'.$row['posterPath'].'" alt="">
+					<div class="card-body">
+					  <h3 class="card-title">'.$row['title'].'</h3>
+					  <!--<div class="card-des" id="rate" onclick="showMsg("fd")"></div>-->
+					  <div>
+						
+						<span id="heart"><i class="fa fa-heart-o" aria-hidden="true" ></i> </span>
+						
+						<!-- give privilege for the Admin to delete--> 
+						<button class="btn btn-outline-danger col-lg-12" onclick="alert("Delete")">Delete</button>
+						<!-- end privilege-->
+						
+					  </div>
+					</div>
+				  </div>
+				  <!-- /.card  -->
+				</div>
+				<div class="col-lg-9 pad-top-10">
+				  <p class="card-text">'.$row['overview'].'</p>
+				</div>
+				<!-- /.col-lg-9 -->
 
-                  </ul>
-              </div>
+			  </div>
 
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+			  <!--Commment Panel-->
+			  <div class="row ">
+				<div class="col-md-12">
+				  <div class="comment-wrapper">
+					<div class="panel panel-info">
+					  <div class="panel-heading">
+							Comments
+					  </div>
 
-    </div>
+					  <div class="panel-body">
+						<textarea class="form-control" placeholder="Write a comment..." rows="3"></textarea>
+						<br>
+						<button type="button" class="btn btn-outline-primary float-right mr-1" onclick="alert("Post")">Post</button>
+						<div class="clearfix"></div>
+						  <hr>
+						  <ul class="media-list">
+
+							  <!--Comment body-->
+							  <li class="media">
+								  <a href="Profile.php?id=12" class="float-left">
+									  <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
+								  </a>
+								  <div class="media-body">
+									  <strong class="text-success">Comment Owner Name</strong>
+									  <p>
+										  Comment details </a>.
+									  </p>
+								  </div>
+							  </li>
+
+						  </ul>
+					  </div>
+
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		';
+
+	} else{
+		echo "<h1>There is no movie with the specified ID.</h1>";
+	}
+	
+
+?>
+	
+	</div>
     <!-- /.container -->
     
 
-<!-- you need to include the shieldui css and js assets in order for the charts to work -->
-<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
-<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+	<!-- you need to include the shieldui css and js assets in order for the charts to work -->
+	<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+	<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 
-<script type="text/javascript" src="js/moviepage.js"></script>
-<script src="js/shared.js"></script>
+	<script type="text/javascript" src="js/moviepage.js"></script>
+	<script src="js/shared.js"></script>
   </body>
 
 </html>

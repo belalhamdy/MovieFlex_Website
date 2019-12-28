@@ -1,7 +1,7 @@
 <?php
 $characterlimit = 250;
 
-$orderby = isset($_GET["orderby"])?$_GET["orderby"]:"releasedate";
+$orderby = isset($_GET["orderby"])?$_GET["orderby"]:"RAND";
 $limit = isset($_GET["limit"])?$_GET["limit"]:"6";
 
 $searchterm = isset($_GET["q"])?$_GET["q"]:"";
@@ -18,15 +18,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$stmt = $conn->prepare("
-SELECT movieid, title, posterPath, overview, votesCount
-FROM movies
-WHERE title LIKE CONCAT('%',?,'%')
-ORDER BY ? DESC
-LIMIT ?");
+	$stmt = $conn->prepare("
+	SELECT movieid, title, posterPath, overview, votesCount
+	FROM movies
+	WHERE title LIKE CONCAT('%',?,'%')
+	ORDER BY $orderby DESC
+	LIMIT ?");
 
-$stmt->bind_param("sss", $searchterm, $orderby, $limit);
-
+	$stmt->bind_param("ss", $searchterm, $limit);	
 
 #$sql = "SELECT movieid, title, posterPath, overview, votesCount FROM movies ORDER BY $orderby DESC LIMIT $limit";
 #$result = $conn->query($sql);
