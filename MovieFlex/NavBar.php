@@ -8,9 +8,9 @@
 	<div class="collapse navbar-collapse" id="navbarResponsive">
 	  
 	  <!--Search Bar-->
-	  <form class="form-inline my-2 my-lg-0">
-		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		<button class="btn btn-outline-primary my-2 my-sm-0" type="submit" onclick="alert('Search')">Search</button>
+	  <form class="form-inline my-2 my-lg-0" action="Search.php" method="get">
+		<input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
+		<input class="btn btn-outline-primary my-2 my-sm-0"type ="submit" value = "Search">
 	  </form>
 
 	  <!--Tabs-->

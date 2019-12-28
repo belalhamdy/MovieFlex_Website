@@ -41,20 +41,7 @@
 
         <div class="col-lg-9 pad-top-5">
           <div class="row " >
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="Movie.php?id=12"><img class="card-img-top" src=""> Image</a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="Movie.php?id=12">Name</a>
-                  </h4>
-                  <h5>Description</h5>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">7.6</small> <!--&#9733; &#9733; &#9733; &#9733; &#9734;-->
-                </div>
-              </div>
-            </div>              
+            <div id = "movies-placeholder"></div>             
           </div>
           <!-- /.row -->
 
@@ -72,6 +59,11 @@
 	<script>
 	  $.get("LeftNavBar.php", {'category' : 'mostview'}, function(data){
 		  $("#leftnav-placeholder").replaceWith(data)
+	  });
+	</script>
+		<script>
+		$.get("MovieBoxes.php", {'limit' : 15, 'orderby' : 'votesCount'}, function(data){
+		  $("#movies-placeholder").replaceWith(data)
 	  });
 	</script>
   </body>

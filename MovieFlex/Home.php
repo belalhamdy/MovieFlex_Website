@@ -84,15 +84,14 @@
     </div>
     <!-- /.container -->
     
-    <script src="js/shared.js">
-    </script>
+    <script src="js/shared.js"></script>
 	<script>
 	  $.get("LeftNavBar.php", {'category' : 'home'}, function(data){
 		  $("#leftnav-placeholder").replaceWith(data)
 	  });
 	</script>
 	<script>
-		$.get("MovieBoxes.php", function(data){
+		$.get("MovieBoxes.php", {'limit' : 6, 'orderby' : 'RAND()'}, function(data){
 		  $("#movies-placeholder").replaceWith(data)
 	  });
 	</script>

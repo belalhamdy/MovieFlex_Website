@@ -109,39 +109,8 @@
 <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
 <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 
-<script type="text/javascript">
-  var numberOfLikes = 0;
-  initializeRatings();
-  function initializeRatings() {
-
-      $('#rate').shieldRating({
-          max: 10,
-          step: 0.1,
-          value: 0,
-          markPreset: false
-      });
-    }
-    $(document).ready(function(){
-
-      $("#heart").click(function(){
-        if($("#heart").hasClass("liked")){
-          numberOfLikes--;
-          $("#heart").html('<i class="fa fa-heart-o" aria-hidden="true">' + ' ' + numberOfLikes + '</i> ');
-          $("#heart").removeClass("liked");
-          alert('Disliked');
-        }else{
-          numberOfLikes++;
-          $("#heart").html('<i class="fa fa-heart" aria-hidden="true">' + ' ' + numberOfLikes + '</i>');
-          $("#heart").addClass("liked");
-          alert('Liked');
-        }
-    });
-});
-
-</script>
-
+<script type="text/javascript" src="js/moviepage.js"></script>
+<script src="js/shared.js"></script>
   </body>
 
 </html>
-
-
