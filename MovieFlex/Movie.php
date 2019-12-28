@@ -42,7 +42,7 @@
         <div class="col-lg-3">
 
           <div class="card mt-4">
-            <img class="card-img-top" src="https://cdn-static.egybest.net/serve/movies/art-2732945228-x300.jpg" alt="" width="300" height="420">
+            <img width="300" height="420" class="card-img-top" src="https://cdn-static.egybest.net/serve/movies/art-2732945228-x300.jpg" alt="">
             <div class="card-body">
               <h3 class="card-title">Movie Name</h3>
               <!--<div class="card-des" id="rate" onclick="showMsg('fd')"></div>-->
@@ -51,7 +51,7 @@
                 <span id="heart"><i class="fa fa-heart-o" aria-hidden="true" ></i> </span>
                 
                 <!-- give privilege for the Admin to delete--> 
-                <button class="btn btn-outline-danger col-lg-12" >Delete</button>
+                <button class="btn btn-outline-danger col-lg-12" onclick="alert('Delete')">Delete</button>
                 <!-- end privilege-->
                 
               </div>
@@ -78,14 +78,14 @@
               <div class="panel-body">
                 <textarea class="form-control" placeholder="write a comment..." rows="3"></textarea>
                 <br>
-                <button type="button" class="btn btn-outline-primary float-right mr-1">Post</button>
+                <button type="button" class="btn btn-outline-primary float-right mr-1" onclick="alert('Post')">Post</button>
                 <div class="clearfix"></div>
                   <hr>
                   <ul class="media-list">
 
                       <!--Comment body-->
                       <li class="media">
-                          <a href="#" class="pull-left">
+                          <a href="Profile.php?id=12" class="float-left">
                               <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
                           </a>
                           <div class="media-body">
@@ -140,10 +140,12 @@
           numberOfLikes--;
           $("#heart").html('<i class="fa fa-heart-o" aria-hidden="true">' + ' ' + numberOfLikes + '</i> ');
           $("#heart").removeClass("liked");
+          alert('Disliked');
         }else{
           numberOfLikes++;
           $("#heart").html('<i class="fa fa-heart" aria-hidden="true">' + ' ' + numberOfLikes + '</i>');
           $("#heart").addClass("liked");
+          alert('Liked');
         }
     });
 });

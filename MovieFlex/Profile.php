@@ -40,7 +40,7 @@
 
       <div class="row pad-top-5 pl-3">
         <div class="card bor-custom" style="width: 18rem;" id="card">
-          <img width="300" height="420" src="https://cdn-static.egybest.net/serve/movies/art-2732945228-x300.jpg" class="card-img-top" alt="Your Picture">
+          <img width="300" height="420" class="card-img-top" src="https://cdn-static.egybest.net/serve/movies/art-2732945228-x300.jpg"  alt="Your Picture">
           <div class="card-body">
             <h5 class="card-title">Your name</h5>
           </div>
@@ -63,10 +63,10 @@
         <!--dp your loop here-->
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card h-100">
-            <a href=""><img class="card-img-top" src=""> Image</a>
+            <a href="Movie.php?id=12"><img class="card-img-top" src=""> Image</a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href=>Name</a>
+                <a href="Movie.php?id=12">Name</a>
               </h4>
               <h5>Description</h5>
             </div>

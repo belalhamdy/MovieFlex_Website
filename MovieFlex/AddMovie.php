@@ -69,7 +69,7 @@
             <textarea class="form-control" id="description" rows="5"></textarea>
         </div>
         <!-- Apply validation for on Click Add Button-->
-        <button type="button" class="btn btn-outline-primary float-right mr-1">Add</button>
+        <button type="button" class="btn btn-outline-primary float-right mr-1" onclick="alert('Add')">Add</button>
 
       </div>
 
